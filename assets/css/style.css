@@ -1,16 +1,19 @@
 .jumbotron {
   padding-top: 6rem;
-  background-color: lightgreen;
 }
 
 section {
   padding-top: 4rem;
 }
-
-#projects {
-  background-color: lightgreen;
+section:nth-child(even) {
+  background: lightgreen;
 }
-
 .text-justify {
   text-align: justify;
+}
+
+.img-overlay {
+  object-fit: cover;
+  height: 250px;
+  background-position: center;
 }

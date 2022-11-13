@@ -4,8 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MSM - Portfolio</title>
+    <!-- bootsrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- bootsrap 5 icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
+    <!-- animation AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body id="home">
@@ -42,7 +46,7 @@
       <img src="https://avatars.githubusercontent.com/u/72691590?s=400&u=9a9d801747d7705018fc6f138fb62e1c40cfbf3e&v=4" alt="profile" width="200" class="rounded-circle img-thumbnail" />
       <h1 class="display-4 mb-0">MSM Portfolio</h1>
       <h4 class="mb-3">Moh. Syahrur Mahani</h4>
-      <p class="lead">Web Developer | Web Designer</p>
+      <p class="lead"></p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,128L48,160C96,192,192,256,288,245.3C384,235,480,149,576,122.7C672,96,768,128,864,154.7C960,181,1056,203,1152,218.7C1248,235,1344,245,1392,250.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
     </section>
     <!-- ENDjumbotron -->
@@ -55,28 +59,28 @@
             <h2>About Me</h2>
           </div>
         </div>
-        <div class="row fs-5 text-center justify-content-between">
-          <div class="col-5 text-justify">
-            Saya merupakan lulusan sarjana komputer STMIK Ichsan Gorontalo tahun 2019. saya sangat tertarik dengan pengembangan/pembuatan aplikasi berbasis website, serta menyukai dunia sinematografi/videografi. oleh karena itu saya sangat senang sekali jika dapat mengimplementasikan dan berbagi apa yang saya miliki dan saya tekuni bebrapa tahun belakang ini.
+        <div class="row fs-5 text-center justify-content-between" data-aos="fade-in">
+          <div class="col-md-5 mb-2 text-justify" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+            Saya merupakan lulusan sarjana komputer STMIK Ichsan Gorontalo tahun 2019. saya sangat tertarik dengan pengembangan / pembuatan aplikasi berbasis website, serta menyukai dunia sinematografi / videografi. oleh karena itu saya sangat senang sekali jika dapat mengimplementasikan dan berbagi apa yang saya miliki dan saya tekuni bebrapa tahun belakang ini.
           </div>
-          <div class="col-5 text-start">
+          <div class="col-md-5 text-start" data-aos="fade-right">
             Pengalaman kerja saya :
             <ol class="list-group list-group-flush list-group-numbered fs-6">
-              <li class="list-group-item d-flex justify-content-between align-items-start">
+              <li class="list-group-item d-flex justify-content-between align-items-start" data-aos="fade-up" data-aos-delay="250" data-aos-easing="ease-in-out">
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Programmer</div>
                   STMIK Ichasn Gorontalo
                 </div>
                 <span class="badge bg-success bg-gradient rounded-pill">2019</span>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-start">
+              <li class="list-group-item d-flex justify-content-between align-items-start" data-aos="fade-up" data-aos-delay="350" data-aos-easing="ease-in-out">
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Programmer</div>
                   PT. Makna Karya Selaras
                 </div>
                 <span class="badge bg-success bg-gradient rounded-pill">2020</span>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-start">
+              <li class="list-group-item d-flex justify-content-between align-items-start"  data-aos="fade-up" data-aos-delay="450" data-aos-easing="ease-in-out">
                 <div class="ms-2 me-auto">
                   <div class="fw-bold">Programmer</div>
                   Dinas Komunikasi, Informatika dan Persandian Kab. Bolaang Mongondow Utara
@@ -101,9 +105,9 @@
         </div>
         <div class="row justify-content-center">
 
-          <div class="col-md-4 my-2">
+          <div class="col-md-4 my-2 projects-items">
             <div class="card">
-              <img src="assets/img/project1.png" class="card-img-top" alt="random" style="object-fit: cover; height: 250px; background-position: center;" width="400">
+              <img src="assets/img/project1.png" class="card-img-top img-overlay" alt="random" width="400">
               <div class="card-body">
                 <p class="card-text"><a href="http://youcool10.000webhostapp.com/adm" target="_blank">youcool <sup><i class="bi bi-arrow-up-right-square"></i><sup></sup></a> &nbsp; Website food and drink berbasis website.</p>
               </div>
@@ -116,6 +120,45 @@
     </section>
     <!-- END projects -->
 
+    <!-- gallery -->
+    <section id="gallery">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <h2>My Gallery</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 videos">
+            <video width="100%" height="300" controls id="vid01">
+              <source src="assets/video/312605188_665942098429916_8821125192328037299_n.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="col-md-4 videos">
+            <video width="100%" height="300" controls id="vid01">
+              <source src="assets/video/313332656_124733143730943_7311127971490976692_n.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="col-md-4 videos">
+            <video width="100%" height="300" controls id="vid01">
+              <source src="assets/video/92495012_884666411975012_7371983425651081216_n.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="col-md-4 videos">
+            <video width="100%" height="300" controls id="vid01">
+              <source src="assets/video/93597654_860334707802236_5008548560015196160_n.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#90EE90" fill-opacity="1" d="M0,96L34.3,133.3C68.6,171,137,245,206,277.3C274.3,309,343,299,411,250.7C480,203,549,117,617,106.7C685.7,96,754,160,823,165.3C891.4,171,960,117,1029,90.7C1097.1,64,1166,64,1234,53.3C1302.9,43,1371,21,1406,10.7L1440,0L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+    </section>
+    <!-- END gallery -->
+
     <!-- contact -->
     <section id="contact">
       <div class="container">
@@ -127,27 +170,27 @@
         <div class="row">
           <div class="col-8 offset-2">
             <form>
-              <div class="form-floating mb-3">
+              <div class="form-floating mb-3" data-aos="fade-down" data-aos-delay="100">
                 <input type="text" class="form-control" id="nama" placeholder="cont: Sahrul Mahani">
                 <label for="nama">Nama Lengkap</label>
               </div>
 
-              <div class="form-floating mb-3">
+              <div class="form-floating mb-3" data-aos="fade-down" data-aos-delay="150">
                 <input type="email" class="form-control" id="email" placeholder="email@example.com">
                 <label for="email">Email</label>
               </div>
 
-              <div class="form-floating mb-3">
+              <div class="form-floating mb-3" data-aos="fade-down" data-aos-delay="200">
                 <textarea class="form-control" placeholder="Masukan pesan disini..." id="pesan" style="min-height: 100px;"></textarea>
                 <label for="pesan">Pesan</label>
               </div>
               
-              <button type="submit" class="btn btn-primary">Kirim</button>
+              <button type="submit" class="btn btn-primary" data-aos="fade-down" data-aos-delay="250">Kirim</button>
             </form>
           </div>
         </div>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#212529" fill-opacity="1" d="M0,128L48,160C96,192,192,256,288,245.3C384,235,480,149,576,122.7C672,96,768,128,864,154.7C960,181,1056,203,1152,218.7C1248,235,1344,245,1392,250.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+      <svg style="margin-bottom: -10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#212529" fill-opacity="1" d="M0,128L48,160C96,192,192,256,288,245.3C384,235,480,149,576,122.7C672,96,768,128,864,154.7C960,181,1056,203,1152,218.7C1248,235,1344,245,1392,250.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
     </section>
     <!-- END contact -->
 
@@ -157,6 +200,40 @@
     </footer>
     <!-- END footer -->
     
+    <!-- boostrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- animation AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/TextPlugin.min.js"></script> <!-- text plugin -->
+    <script>
+      const projects = document.querySelectorAll('.projects-items')
+      projects.forEach((project, i) => {
+        project.dataset.aos = 'zoom-out-up'
+        project.dataset.aosDelay = i * 500
+        project.dataset.aosDuration = 500
+        project.dataset.aosEasing = 'ease-in-out'
+      })
+      
+      const videos = document.querySelectorAll('.videos')
+      videos.forEach((video, i) => {
+        video.dataset.aos = 'fade-down'
+        video.dataset.aosDelay = i * 400
+        video.dataset.aosDuration = 500
+        video.dataset.aosEasing = 'ease-in-out'
+      })
+
+      AOS.init({
+        once: true
+      });
+
+      gsap.registerPlugin(TextPlugin)
+      gsap.to('.jumbotron p', {duration: 2, delay: 1.5, text: 'Web Developer | Web Designer | Sistem Informasi', ease: 'slow'})
+      gsap.from('.navbar', {duration: 1.5, y: '-100%', ease: 'slow'})
+      gsap.from('.jumbotron img', {duration: 1, y: -100, opacity: 0, ease: 'power2'})
+      gsap.from('.jumbotron h1', {duration: 1.5, y: -100, ease: 'back', opacity: 0})
+      gsap.from('.jumbotron h4', {duration: 2, y: -150, ease: 'back', opacity: 0})
+    </script>
   </body>
 </html>

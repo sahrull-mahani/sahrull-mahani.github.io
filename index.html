@@ -1,24 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MSM - Portfolio</title>
-  <link rel="stylesheet" href="src/css/final.css">
+  <link rel="stylesheet" href="src/css/output.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
 
-  <section class="bg-top bg-cover sm:bg-center bg-[url('../img/BG.jpg')] bg-gray-700 bg-blend-multiply">
+  <section data-aos="fade-down"
+    class="bg-top bg-cover sm:bg-center bg-[url('../img/BG.jpg')] bg-gray-700 bg-blend-multiply">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Moh.
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
+        data-aos="fade-up" data-aos-duration="1000">Moh.
         Syahrur Mahani Portfolio</h1>
-      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Saya telah bekerja sebagai web
+      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48" data-aos="fade-down"
+        data-aos-duration="2000">Saya telah bekerja sebagai web
         developer kurang lebih 5 sampai 6 tahun. Saya sangat tertarik dengan pengembangan atau/dan pembuatan aplikasi
         baik itu website, mobile (<i>android</i>), ataupun desktop.</p>
-      <a href="#"
-        class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+      <a href="#tentang"
+        class="scroll-spy-link inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-blue-700 hover:text-white rounded-lg border-2 border-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300"
+        data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine">
         Tentang Saya
         <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
           viewBox="0 0 14 10">
@@ -29,44 +37,59 @@
     </div>
   </section>
 
-  <section class="px-36 pt-10">
-    <h4 class="text-4xl text-center mb-10 font-bold font-mono tracking-widest">Tentang Saya</h4>
+  <section class="px-36 pt-10 mb-28" id="tentang">
+    <h4 class="text-4xl text-center mb-10 font-bold font-mono tracking-widest" data-aos="fade-down-right"
+      data-aos-easing="ease-in-out">Tentang Saya</h4>
     <div class="grid grid-cols-2 gap-9">
-      <p class="text-justify indent-8 leading-8 font-sans text-lg text-slate-800">Sebagai lulusan <strong
-          class="text-green-700">STMIK Ichsan Gorontalo tahun 2019</strong>, Saya telah berhasil membangun aplikasi
-        e-commerce menggunakan <strong class="text-red-800">Laravel</strong> dan <strong class="text-cyan-700">React
+      <p class="text-justify indent-8 leading-8 font-sans text-lg text-slate-800" data-aos="zoom-in-down"
+        data-aos-duration="1000">Sebagai lulusan <strong class="text-green-700" data-aos="zoom-in-down"
+          data-aos-duration="1200" data-aos-easing="ease-in-sine">STMIK Ichsan Gorontalo tahun 2019</strong>, Saya telah
+        berhasil membangun aplikasi
+        e-commerce menggunakan <strong class="text-red-800" data-aos="zoom-in-down" data-aos-duration="1600"
+          data-aos-easing="ease-in-sine">Laravel</strong> dan <strong class="text-cyan-700" data-aos="zoom-in-down"
+          data-aos-duration="2000" data-aos-easing="ease-in-sine">React
           Native</strong>. Saya sangat tertarik dengan pengembangan / pembuatan aplikasi berbasis website, mobile
         (android) serta desktop. Saya memiliki pengalaman dalam mengoptimalkan performa aplikasi web, serta
         mengimplementasikan best practices dalam pengembangan software. Saya sangat tertarik untuk bergabung dengan tim
         yang dinamis dan berkontribusi dalam pengembangan produk digital yang inovatif.</p>
 
 
-      <ol class="relative border-s border-gray-700 dark:border-gray-400">
+      <ol class="relative border-s border-gray-700" data-aos="fade-right" data-aos-duration="1200"
+        data-aos-easing="ease-in-sine">
         <li class="mb-10 ms-4">
-          <div
-            class="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+          <div class="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -start-1.5 border border-white"
+            data-aos="fade-right" data-aos-duration="1200" data-aos-easing="ease-in-sine">
           </div>
-          <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2019</time>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Programmer</h3>
-          <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Jadi programmer di tim STMIK ICHSAN
+          <time class="mb-1 text-sm font-normal leading-none text-gray-400" data-aos="fade-right"
+            data-aos-duration="1210" data-aos-easing="ease-in-sine">2019</time>
+          <h3 class="text-lg font-semibold text-gray-900" data-aos="fade-right" data-aos-duration="1230"
+            data-aos-easing="ease-in-sine">Programmer</h3>
+          <p class="mb-4 text-base font-normal text-gray-500" data-aos="fade-right" data-aos-duration="1250"
+            data-aos-easing="ease-in-sine">Jadi programmer di tim STMIK ICHSAN
             Gorontalo.</p>
         </li>
         <li class="mb-10 ms-4">
-          <div
-            class="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+          <div class="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -start-1.5 border border-white"
+            data-aos="fade-right" data-aos-duration="1300" data-aos-easing="ease-in-sine">
           </div>
-          <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2020</time>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Programmer</h3>
-          <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">WEB Developer di PT Makna Karya
+          <time class="mb-1 text-sm font-normal leading-none text-gray-400" data-aos="fade-right"
+            data-aos-duration="1320" data-aos-easing="ease-in-sine">2020</time>
+          <h3 class="text-lg font-semibold text-gray-900" data-aos="fade-right" data-aos-duration="1330"
+            data-aos-easing="ease-in-sine">Programmer</h3>
+          <p class="mb-4 text-base font-normal text-gray-500" data-aos="fade-right" data-aos-duration="1350"
+            data-aos-easing="ease-in-sine">WEB Developer di PT Makna Karya
             Selaras.</p>
         </li>
         <li class="mb-10 ms-4">
-          <div
-            class="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
+          <div class="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -start-1.5 border border-white"
+            data-aos="fade-right" data-aos-duration="1400" data-aos-easing="ease-in-sine">
           </div>
-          <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2022</time>
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Programmer</h3>
-          <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Tenaga Ahli programmer di Dinas
+          <time class="mb-1 text-sm font-normal leading-none text-gray-400" data-aos="fade-right"
+            data-aos-duration="1430" data-aos-easing="ease-in-sine">2022</time>
+          <h3 class="text-lg font-semibold text-gray-900" data-aos="fade-right" data-aos-duration="1450"
+            data-aos-easing="ease-in-sine">Programmer</h3>
+          <p class="mb-4 text-base font-normal text-gray-500" data-aos="fade-right" data-aos-duration="1490"
+            data-aos-easing="ease-in-sine">Tenaga Ahli programmer di Dinas
             Komunikasi, Informatika dan Persandian Kab. Bolaang Mongondow Utara.</p>
         </li>
       </ol>
@@ -75,14 +98,102 @@
   </section>
 
   <section class="px-36 pt-10 mb-28">
+    <h4 class="text-4xl text-center font-bold font-mono tracking-widest m-auto" data-aos="fade-down" data-aos-easing="ease-in-sine">Keahlian</h4>
+
+    <div class="swiper mt-10" data-aos="fade-up" data-aos-delay="300" data-aos-easing="ease-in-out">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-orange-700 text-4xl flex justify-between">
+            <i class="fa-brands fa-html5 fa-2x pr-4 border-r-4 border-orange-600 rounded-r-lg"></i>
+            <h4 class="font-sans font-bold">HTML 5</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-indigo-700 text-4xl flex justify-between">
+            <i class="fa-brands fa-php fa-2x pr-4 border-r-4 border-indigo-600 rounded-r-lg"></i>
+            <h4 class="font-sans font-bold">PHP</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-red-700 text-7xl flex justify-between">
+            <i class="devicon-codeigniter-plain pr-4 border-r-4 border-red-600 rounded-r-lg inline-block"></i>
+            <h4 class="font-sans font-bold text-4xl">Codeigniter</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-red-700 text-4xl flex justify-between">
+            <i class="fa-brands fa-laravel fa-2x pr-4 border-r-4 border-red-600 rounded-r-lg"></i>
+            <h4 class="font-sans font-bold">Laravel</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-cyan-700 text-4xl flex justify-between">
+            <i class="fa-brands fa-css3 fa-2x pr-4 border-r-4 border-cyan-600 rounded-r-lg"></i>
+            <h4 class="font-sans font-bold">CSS 3</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-purple-700 text-4xl flex justify-between">
+            <i class="fa-brands fa-bootstrap fa-2x pr-4 border-r-4 border-purple-600 rounded-r-lg"></i>
+            <h4 class="font-sans font-bold">Bootstrap</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-cyan-700 text-7xl flex justify-between">
+            <i class="devicon-tailwindcss-original pr-4 border-r-4 border-cyan-600 rounded-r-lg inline-block"></i>
+            <h4 class="font-sans font-bold text-3xl">Tailwind CSS</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-yellow-400 text-4xl flex justify-between">
+            <i class="fa-brands fa-js fa-2x pr-4 border-r-4 border-yellow-300 rounded-r-lg"></i>
+            <h4 class="font-sans font-bold">Javascript</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-cyan-700 text-7xl flex justify-between">
+            <i class="devicon-jquery-plain pr-4 border-r-4 border-cyan-600 rounded-r-lg inline-block"></i>
+            <h4 class="font-sans font-bold text-4xl">JQuery</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-green-700 text-4xl flex justify-between">
+            <i class="fa-brands fa-node-js fa-2x pr-4 border-r-4 border-green-600 rounded-r-lg"></i>
+            <h4 class="font-sans font-bold">Node JS</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-blue-700 text-4xl flex justify-between">
+            <i class="fa-brands fa-react fa-2x pr-4 border-r-4 border-blue-600 rounded-r-lg"></i>
+            <h4 class="font-sans font-bold">React</h4>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-cyan-700 text-4xl flex justify-between">
+            <i class="fa-brands fa-react fa-2x pr-4 border-r-4 border-cyan-600 rounded-r-lg"></i>
+            <h4 class="font-sans font-bold text-3xl">React Native</h4>
+          </div>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+    </div>
+  </section>
+
+  <section class="px-36 pt-10 mb-28">
     <div
       class="w-full bg-cover bg-center h-40 bg-fixed bg-[url('../img/BG2.jpg')] bg-slate-900 bg-blend-multiply rounded-lg flex mb-4">
-      <h4 class="text-4xl text-center font-bold font-mono tracking-widest text-white m-auto">My Projects</h4>
+      <h4 class="text-4xl text-center font-bold font-mono tracking-widest text-white m-auto"><span id="typed"></span>
+      </h4>
     </div>
 
     <div class="grid grid-cols-2 gap-4 mt-14">
 
-      <div class="bg-cover bg-[url('../img/project1.png')] w-full h-64 rounded-xl p-5 group drop-shadow-xl">
+      <div class="bg-cover bg-[url('../img/project1.png')] w-full h-64 rounded-xl p-5 group drop-shadow-xl"
+        data-aos="fade-up" data-aos-delay="200" data-aos-easing="ease-in-sine">
         <a href="http://youcool10.000webhostapp.com/" target="_blank"
           class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">Youcool.com</a>
 
@@ -91,7 +202,8 @@
           food and beverage.</small>
       </div>
 
-      <div class="bg-cover bg-[url('../img/diskominfo.jpg')] w-full h-64 rounded-xl p-5 group">
+      <div class="bg-cover bg-[url('../img/diskominfo.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
+        data-aos-delay="300" data-aos-easing="ease-in-sine">
         <a href="https://diskominfo.bolmutkab.go.id/" target="_blank"
           class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">Diskominfo
           & Persandian Bolaang Mongondow Utara</a>
@@ -101,7 +213,8 @@
           profil dinas Komunikasi Informasi dan Statistika di Bolaang Mongondow Utara.</small>
       </div>
 
-      <div class="bg-cover bg-[url('../img/perdaginkop.jpg')] w-full h-64 rounded-xl p-5 group">
+      <div class="bg-cover bg-[url('../img/perdaginkop.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
+        data-aos-delay="400" data-aos-easing="ease-in-sine">
         <a href="https://sibakti.perdaginkop.bolmutkab.go.id/" target="_blank"
           class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">Sibakti
           Bolaang Mongondow Utara</a>
@@ -112,7 +225,8 @@
           Mongondow Utara.</small>
       </div>
 
-      <div class="bg-cover bg-[url('../img/ppid.jpg')] w-full h-64 rounded-xl p-5 group">
+      <div class="bg-cover bg-[url('../img/ppid.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
+        data-aos-delay="200" data-aos-easing="ease-in-sine">
         <a href="https://ppid.bolmutkab.go.id/" target="_blank"
           class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">PPID
           (Pejabat Pengelola Informasi dan Dokumentasi)</a>
@@ -122,7 +236,8 @@
           yang mengelola informasi pemerintah daerah khusunya di Bolaang Mongondow Utara.</small>
       </div>
 
-      <div class="bg-cover bg-[url('../img/kecmatan.jpg')] w-full h-64 rounded-xl p-5 group">
+      <div class="bg-cover bg-[url('../img/kecmatan.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
+        data-aos-delay="300" data-aos-easing="ease-in-sine">
         <a href="http://kaidipang.bolmutkab.go.id/" target="_blank"
           class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">Kecamatan
           Kaidipang KAB. Bolmut</a>
@@ -132,7 +247,8 @@
           profil kecamatan kaidipang di KAB. Bolmut.</small>
       </div>
 
-      <div class="bg-cover bg-[url('../img/simudah.jpg')] w-full h-64 rounded-xl p-5 group">
+      <div class="bg-cover bg-[url('../img/simudah.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
+        data-aos-delay="400" data-aos-easing="ease-in-sine">
         <a href="https://simudah.bolmutkab.go.id/" target="_blank"
           class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">SIMUDAH
           (Sistem Informasi Manajemen Surat Daerah)</a>
@@ -149,5 +265,64 @@
     <h3 class="text-white text-center">&copy; 2025 | <strong>Moh. Syahrur Mahani</strong></h3>
   </footer>
 </body>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="if (AOS) {AOS.init();}"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script type="module">
+  new Typed('#typed', {
+    strings: ['My Projects', 'Daftar Projek'],
+    typeSpeed: 100,
+    delaySpeed: 200,
+    loop: true
+  })
+
+  const makeNavLinksSmooth = () => {
+    const navLinks = document.querySelectorAll('.scroll-spy-link')
+
+    for (let n in navLinks) {
+      if (navLinks.hasOwnProperty(n)) {
+        navLinks[n].addEventListener('click', e => {
+          e.preventDefault()
+          document.querySelector(navLinks[n].hash).scrollIntoView({ behavior: "smooth" })
+        })
+      }
+    }
+  }
+
+  // const spyScrolling = () => {
+  //   const sections = document.querySelectorAll('.sections')
+
+  //   window.onscroll = () => {
+  //     const scrollPos = document.documentElement.scrollTop || document.body.scrollTop
+
+  //     for (let s in sections)
+  //       if (sections.hasOwnProperty(s) && sections[s].offsetTop <= scrollPos) {
+  //         const id = sections[s].id
+  //         document.querySelector('.active').classList.remove('active')
+  //         document.querySelector(`a[href*=${id}]`).parentNode.classList.add('active')
+  //       }
+  //   }
+  // }
+
+  makeNavLinksSmooth()
+  // spyScrolling()
+
+  new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    grabCursor: true,
+    slidesPerView: 3,
+    spaceBetween: 30,
+  })
+
+</script>
 
 </html>

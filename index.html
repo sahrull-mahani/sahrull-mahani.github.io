@@ -5,726 +5,948 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MSM - Portfolio</title>
-  <link rel="stylesheet" href="src/css/final.css">
+  <link rel="stylesheet" href="src/css/output.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/devicon/2.16.0/devicon.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    /* ----- RESET & TRANSISI ----- */
+    * {
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    /* ----- VARIABEL TEMA ----- */
+    .dark {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #121212;
+      --bg-card: rgba(25, 25, 25, 0.88);
+      --text-primary: #e8e8e8;
+      --text-secondary: #a8a8a8;
+      --text-muted: #888888;
+      --border-color: rgba(220, 38, 38, 0.25);
+      --shadow-color: rgba(220, 38, 38, 0.12);
+      --pattern-color-1: rgba(60, 60, 70, 0.15);
+      --pattern-color-2: rgba(40, 40, 50, 0.10);
+    }
+
+    .light {
+      --bg-primary: #f0f0f0;
+      --bg-secondary: #fafafa;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --text-muted: #6b6b6b;
+      --border-color: rgba(180, 20, 20, 0.12);
+      --shadow-color: rgba(0, 0, 0, 0.06);
+      --pattern-color-1: rgba(80, 80, 90, 0.12);
+      --pattern-color-2: rgba(60, 60, 70, 0.08);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    /* ----- BACKGROUND PATTERN GARIS DIAGONAL BELAH KETUPAT (ELEGAN) ----- */
+    .bg-pattern {
+      background-color: var(--bg-primary);
+      background-image:
+        repeating-linear-gradient(45deg,
+          transparent,
+          transparent 28px,
+          var(--pattern-color-1) 28px,
+          var(--pattern-color-1) 29px,
+          transparent 29px,
+          transparent 58px),
+        repeating-linear-gradient(-45deg,
+          transparent,
+          transparent 28px,
+          var(--pattern-color-2) 28px,
+          var(--pattern-color-2) 29px,
+          transparent 29px,
+          transparent 58px);
+      background-size: 82px 82px;
+      background-position: 0 0, 41px 0;
+    }
+
+    /* ----- KELAS TEMA ----- */
+    .bg-theme-primary {
+      background-color: var(--bg-primary);
+    }
+
+    .bg-theme-secondary {
+      background-color: var(--bg-secondary);
+    }
+
+    .bg-theme-card {
+      background-color: var(--bg-card);
+      backdrop-filter: blur(8px);
+    }
+
+    .text-theme-primary {
+      color: var(--text-primary);
+    }
+
+    .text-theme-secondary {
+      color: var(--text-secondary);
+    }
+
+    .text-theme-muted {
+      color: var(--text-muted);
+    }
+
+    .border-theme {
+      border-color: var(--border-color);
+    }
+
+    .shadow-theme {
+      box-shadow: 0 4px 20px var(--shadow-color);
+    }
+
+    /* ----- HERO SECTION ----- */
+    .hero-section {
+      background-image: url('src/img/BG.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-section .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .light .hero-section .overlay {
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-text {
+      color: #ffffff !important;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-text .highlight {
+      color: #dc2626;
+      text-shadow: 0 0 30px rgba(220, 38, 38, 0.4);
+    }
+
+    .hero-subtext {
+      color: rgba(255, 255, 255, 0.9) !important;
+      text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-btn {
+      background: #dc2626;
+      color: white !important;
+      border: 2px solid #dc2626;
+      box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .hero-btn:hover {
+      background: #b91c1c;
+      border-color: #b91c1c;
+      box-shadow: 0 0 50px rgba(220, 38, 38, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .hero-btn-outline {
+      background: transparent;
+      color: white !important;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .hero-btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #dc2626;
+      color: #dc2626 !important;
+      transform: translateY(-2px);
+    }
+
+    /* ----- SKILL ITEMS ----- */
+    .skill-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(4px);
+      padding: 12px 16px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 20px var(--shadow-color);
+    }
+
+    /* ----- PROJECT CARDS ----- */
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(4px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow-color);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: #dc2626;
+      box-shadow: 0 20px 40px -12px rgba(220, 38, 38, 0.3);
+    }
+
+    .project-card .card-image {
+      height: 192px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ----- TIMELINE ----- */
+    .timeline-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(4px);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 20px var(--shadow-color);
+    }
+
+    .timeline-dot {
+      background: #dc2626;
+      box-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+      border: 2px solid #000;
+    }
+
+    /* ----- TABLE ----- */
+    .dark-table thead {
+      background: rgba(220, 38, 38, 0.12);
+    }
+
+    .dark-table tbody tr {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .dark-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    /* ----- THEME TOGGLE ----- */
+    .theme-toggle {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(8px);
+      padding: 8px 16px;
+      border-radius: 9999px;
+      box-shadow: 0 4px 20px var(--shadow-color);
+    }
+
+    /* ----- GLOW & MISC ----- */
+    .text-red-glow {
+      color: #dc2626;
+      text-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+    }
+
+    .dark .text-red-glow {
+      text-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+    }
+
+    #typed {
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .parallax-bg {
+      background-image: url('src/img/BG2.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .swiper-slide {
+      height: auto !important;
+    }
+
+    /* ----- TIMELINE CARD (TENTANG) ----- */
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(4px);
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: 0 4px 20px var(--shadow-color);
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .timeline-card:hover {
+      border-color: #dc2626;
+      transform: translateX(4px);
+      box-shadow: 0 8px 30px rgba(220, 38, 38, 0.12);
+    }
+
+    .timeline-card .year {
+      color: #dc2626;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .timeline-card .title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      margin: 4px 0;
+    }
+
+    .timeline-card .company {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .timeline-card .description {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 8px;
+      padding-left: 4px;
+    }
+
+    /* Highlight list di tentang */
+    .highlight-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 8px;
+    }
+
+    .highlight-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #dc2626;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
-<body>
+<body class="dark bg-theme-primary text-theme-primary bg-pattern">
 
-  <section data-aos="fade-down"
-    class="bg-top bg-cover sm:bg-center bg-[url('../img/BG.jpg')] bg-gray-700 bg-blend-multiply">
-    <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl"
-        data-aos="fade-up" data-aos-duration="1000">Moh.
-        Syahrur Mahani Portfolio</h1>
-      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48" data-aos="fade-down"
-        data-aos-duration="2000">Saya telah bekerja sebagai web
-        developer kurang lebih 5 sampai 6 tahun. Saya sangat tertarik dengan pengembangan atau/dan pembuatan aplikasi
-        baik itu website, mobile (<i>android</i>), ataupun desktop.</p>
-      <a href="#tentang"
-        class="scroll-spy-link inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-blue-700 hover:text-white rounded-lg border-2 border-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300"
-        data-aos="fade-up" data-aos-duration="1500" data-aos-easing="ease-in-sine">
-        Tentang Saya
-        <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-          viewBox="0 0 14 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M1 5h12m0 0L9 1m4 4L9 9" />
-        </svg>
-      </a>
+  <!-- Toggle Theme Button -->
+  <div class="fixed top-4 right-4 z-50 flex items-center gap-2 theme-toggle">
+    <i class="fa-regular fa-sun text-yellow-500 text-sm"></i>
+    <label class="relative inline-flex items-center cursor-pointer">
+      <input type="checkbox" id="themeToggle" class="sr-only peer" checked>
+      <div
+        class="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-700">
+      </div>
+    </label>
+    <i class="fa-regular fa-moon text-blue-300 text-sm"></i>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section data-aos="fade-down" class="hero-section">
+    <div class="overlay"></div>
+    <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56 relative z-10">
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl hero-text"
+        data-aos="fade-up" data-aos-duration="1000">
+        Moh. Syahrur Mahani <span class="highlight">Portfolio</span>
+      </h1>
+      <p class="mb-6 text-lg font-normal lg:text-xl sm:px-16 lg:px-48 hero-subtext" data-aos="fade-down"
+        data-aos-duration="2000">
+        Saya telah bekerja sebagai web developer kurang lebih 5 sampai 6 tahun. Saya sangat tertarik dengan
+        pengembangan atau/dan pembuatan aplikasi baik itu website, mobile (<i>android</i>), ataupun desktop.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-duration="1500">
+        <a href="#tentang"
+          class="scroll-spy-link inline-flex justify-center items-center py-3 px-6 text-base font-medium text-center rounded-lg hero-btn transition-all duration-300">
+          Tentang Saya
+          <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+        <a href="#proyek"
+          class="scroll-spy-link inline-flex justify-center items-center py-3 px-6 text-base font-medium text-center rounded-lg hero-btn-outline transition-all duration-300">
+          Lihat Proyek
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="px-2 sm:px-6 md:px-20 lg:px-36 pt-10 mb-28" id="tentang">
-    <h4 class="text-4xl text-center mb-10 font-bold font-mono tracking-widest" data-aos="fade-down-right"
-      data-aos-easing="ease-in-out">Tentang Saya</h4>
-    <div class="flex flex-wrap">
-      <p class="w-full md:w-1/2 px-4 text-justify indent-8 leading-8 font-sans text-lg text-slate-800" data-aos="zoom-in-down"
-        data-aos-duration="1000">Web Programmer berpengalaman dengan 4-5 tahun keahlian dalam
-        pengembangan perangkat lunak. Mahir dalam <strong class="text-purple-600" data-aos="zoom-in-down"
-          data-aos-duration="1600" data-aos-easing="ease-in-sine">PHP</strong>, <strong class="text-red-700"
-          data-aos="zoom-in-down" data-aos-duration="1600" data-aos-easing="ease-in-sine">Codeigniter (CI)</strong>,
-        <strong class="text-cyan-600" data-aos="zoom-in-down" data-aos-duration="1600"
-          data-aos-easing="ease-in-sine">React Native</strong> dan <strong class="text-red-800" data-aos="zoom-in-down"
-          data-aos-duration="2000" data-aos-easing="ease-in-sine">Laravel</strong>, serta penggunaan <strong
-          class="text-orange-700" data-aos="zoom-in-down" data-aos-duration="1600"
-          data-aos-easing="ease-in-sine">MySQL</strong> sebagai basis data. Berpengalaman dalam debugging dan optimasi sistem, dengan rekam jejak pengurangan kesalahan sistem secara signifikan. Memiliki kemampuan membangun hubungan klien yang positif dan
-       efektif. Beradaptasi dengan cepat dalam lingkungan kolaboratif dan dinamis, dengan tujuan untuk terus mengembangkan keterampilan teknis dan bertransisi ke bidang baru yang menantang.</p>
+  <!-- TENTANG - VERSI PROFESIONAL & MENJUAL -->
+  <section class="px-4 sm:px-8 md:px-20 lg:px-36 py-16 bg-theme-primary bg-pattern" id="tentang">
+    <h4 class="text-4xl text-center mb-12 font-bold font-mono tracking-widest text-red-600 text-red-glow"
+      data-aos="fade-down-right" data-aos-easing="ease-in-out">
+      Tentang Saya
+    </h4>
 
-      <ol class="w-full md:w-1/2 px-4 relative border-s border-gray-700" data-aos="fade-right" data-aos-duration="1200"
-        data-aos-easing="ease-in-sine">
-        <li class="mb-10 ms-4">
-          <div class="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -start-1.5 border border-white"
-            data-aos="fade-right" data-aos-duration="1200" data-aos-easing="ease-in-sine">
-          </div>
-          <time class="mb-1 text-sm font-normal leading-none text-gray-400" data-aos="fade-right"
-            data-aos-duration="1210" data-aos-easing="ease-in-sine">2019</time>
-          <h3 class="text-lg font-semibold text-gray-900" data-aos="fade-right" data-aos-duration="1230"
-            data-aos-easing="ease-in-sine">Programmer</h3>
-          <p class="mb-4 text-base font-normal text-gray-500" data-aos="fade-right" data-aos-duration="1250"
-            data-aos-easing="ease-in-sine">Jadi programmer di tim STMIK ICHSAN
-            Gorontalo.</p>
-        </li>
-        <li class="mb-10 ms-4">
-          <div class="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -start-1.5 border border-white"
-            data-aos="fade-right" data-aos-duration="1300" data-aos-easing="ease-in-sine">
-          </div>
-          <time class="mb-1 text-sm font-normal leading-none text-gray-400" data-aos="fade-right"
-            data-aos-duration="1320" data-aos-easing="ease-in-sine">2020</time>
-          <h3 class="text-lg font-semibold text-gray-900" data-aos="fade-right" data-aos-duration="1330"
-            data-aos-easing="ease-in-sine">Programmer</h3>
-          <p class="mb-4 text-base font-normal text-gray-500" data-aos="fade-right" data-aos-duration="1350"
-            data-aos-easing="ease-in-sine">WEB Developer di PT Makna Karya
-            Selaras.</p>
-        </li>
-        <li class="mb-10 ms-4">
-          <div class="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -start-1.5 border border-white"
-            data-aos="fade-right" data-aos-duration="1400" data-aos-easing="ease-in-sine">
-          </div>
-          <time class="mb-1 text-sm font-normal leading-none text-gray-400" data-aos="fade-right"
-            data-aos-duration="1430" data-aos-easing="ease-in-sine">2022</time>
-          <h3 class="text-lg font-semibold text-gray-900" data-aos="fade-right" data-aos-duration="1450"
-            data-aos-easing="ease-in-sine">Programmer</h3>
-          <p class="mb-4 text-base font-normal text-gray-500" data-aos="fade-right" data-aos-duration="1490"
-            data-aos-easing="ease-in-sine">Tenaga Ahli programmer di Dinas
-            Komunikasi, Informatika dan Persandian Kab. Bolaang Mongondow Utara.</p>
-        </li>
-      </ol>
+    <div data-aos="zoom-in-down" data-aos-duration="1000" class="mb-12">
+      <div class="bg-theme-card p-6 md:p-8 rounded-2xl border-theme shadow-theme max-w-5xl mx-auto">
+        <p class="text-justify indent-8 leading-8 font-sans text-lg text-theme-primary mb-6">
+          <strong class="text-red-600">Full-Stack Web Developer</strong> dengan pengalaman lebih dari 5 tahun dalam
+          merancang dan membangun solusi digital yang <strong class="text-red-600">handal, scalable, dan
+            berorientasi pada hasil</strong>. Saya memiliki rekam jejak terbukti dalam mengurangi error sistem hingga
+          <strong class="text-red-600">40%</strong> melalui proses debugging dan optimasi yang sistematis.
+        </p>
 
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+          <div>
+            <h5 class="text-red-600 font-bold text-lg mb-3">⚡ Keahlian Inti</h5>
+            <ul class="highlight-list text-theme-secondary space-y-2">
+              <li><strong class="text-theme-primary">Backend:</strong> PHP (Laravel, Codeigniter), Node.js</li>
+              <li><strong class="text-theme-primary">Frontend:</strong> React Native, JavaScript, Tailwind CSS</li>
+              <li><strong class="text-theme-primary">Database:</strong> MySQL, MongoDB, SQLite</li>
+              <li><strong class="text-theme-primary">DevOps:</strong> Deployment server, optimasi performa</li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="text-red-600 font-bold text-lg mb-3">🏆 Nilai Tambah</h5>
+            <ul class="highlight-list text-theme-secondary space-y-2">
+              <li>Membangun <strong class="text-theme-primary">hubungan klien yang kuat</strong> dengan komunikasi
+                efektif</li>
+              <li>Adaptif di lingkungan <strong class="text-theme-primary">kolaboratif & dinamis</strong></li>
+              <li>Komitmen pada <strong class="text-theme-primary">pembelajaran berkelanjutan</strong> dan inovasi</li>
+              <li>Transisi mulus ke <strong class="text-theme-primary">teknologi & metodologi baru</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-theme">
+          <p class="text-theme-secondary text-sm italic">
+            "Saya tidak hanya menulis kode — saya menciptakan solusi yang memberikan dampak nyata bagi bisnis dan
+            pengguna."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RINGKASAN KARIR (timeline singkat) -->
+    <div data-aos="fade-up" data-aos-duration="1200" class="max-w-4xl mx-auto">
+      <h5 class="text-center text-red-600 font-bold text-lg mb-6">📌 Perjalanan Karir</h5>
+      <div
+        class="space-y-4 relative pl-6 before:absolute before:left-1.5 before:top-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-red-600 before:via-red-600/40 before:to-transparent">
+
+        <div class="timeline-card relative">
+          <div
+            class="absolute -left-[26px] top-5 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+          </div>
+          <span class="year">2019</span>
+          <div class="title">Programmer</div>
+          <div class="company">STMIK ICHSAN Gorontalo</div>
+          <div class="description">Memulai karir sebagai programmer di tim pengembangan kampus.</div>
+        </div>
+
+        <div class="timeline-card relative">
+          <div
+            class="absolute -left-[26px] top-5 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+          </div>
+          <span class="year">2020</span>
+          <div class="title">WEB Developer</div>
+          <div class="company">PT Makna Karya Selaras</div>
+          <div class="description">Pengembangan web profesional untuk berbagai klien korporat.</div>
+        </div>
+
+        <div class="timeline-card relative">
+          <div
+            class="absolute -left-[26px] top-5 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+          </div>
+          <span class="year">2022 - 2024</span>
+          <div class="title">Tenaga Ahli Programmer</div>
+          <div class="company">Diskominfo & Persandian Kab. Bolmut</div>
+          <div class="description">Mengembangkan dan memelihara aplikasi pemerintah daerah.</div>
+        </div>
+
+        <div class="timeline-card relative">
+          <div
+            class="absolute -left-[26px] top-5 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+          </div>
+          <span class="year">Apr - Mei 2025</span>
+          <div class="title">Backend Programmer</div>
+          <div class="company">Entercode</div>
+          <div class="description">Pengembangan backend untuk sistem enterprise dengan arsitektur microservice.</div>
+        </div>
+
+        <div class="timeline-card relative border-red-600/40">
+          <div
+            class="absolute -left-[26px] top-5 w-4 h-4 rounded-full bg-red-600 border-2 border-black shadow-[0_0_30px_rgba(220,38,38,0.6)] animate-pulse">
+          </div>
+          <span class="year">Juni 2025 - Sekarang</span>
+          <div class="title">IT Programmer</div>
+          <div class="company">RSUD Aloei Saboe Kota Gorontalo</div>
+          <div class="description">Mengembangkan dan mengelola sistem informasi rumah sakit untuk mendukung layanan
+            kesehatan.</div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <section class="px-2 sm:px-6 md:px-20 lg:px-36 pt-10 mb-28">
-    <h4 class="text-4xl text-center font-bold font-mono tracking-widest m-auto" data-aos="fade-down"
-      data-aos-easing="ease-in-sine">Keahlian (programing)</h4>
+  <!-- KEAHLIAN PROGRAMMING -->
+  <section class="px-4 sm:px-8 md:px-20 lg:px-36 py-16 bg-theme-secondary bg-pattern">
+    <h4 class="text-4xl text-center font-bold font-mono tracking-widest m-auto text-red-600 text-red-glow"
+      data-aos="fade-down" data-aos-easing="ease-in-sine">
+      Keahlian (Programming)
+    </h4>
 
     <div class="swiper mt-10" data-aos="fade-up" data-aos-delay="300" data-aos-easing="ease-in-out">
-      <!-- Additional required wrapper -->
       <div class="swiper-wrapper mb-10">
-        <!-- Slides -->
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-orange-700 text-4xl flex justify-between">
-            <i class="fa-brands fa-html5 fa-2x pr-4 border-r-4 border-orange-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa-brands fa-html5 text-3xl text-orange-500"></i>
             <h4 class="font-sans font-bold">HTML 5</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-indigo-700 text-4xl flex justify-between">
-            <i class="fa-brands fa-php fa-2x pr-4 border-r-4 border-indigo-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa-brands fa-php text-3xl text-indigo-400"></i>
             <h4 class="font-sans font-bold">PHP</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-red-700 text-7xl flex justify-between">
-            <i class="devicon-codeigniter-plain pr-4 border-r-4 border-red-600 rounded-r-lg inline-block"></i>
-            <h4 class="font-sans font-bold text-4xl">Codeigniter</h4>
+          <div class="skill-item"><i class="devicon-codeigniter-plain text-4xl text-red-500"></i>
+            <h4 class="font-sans font-bold">Codeigniter</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-red-700 text-4xl flex justify-between">
-            <i class="fa-brands fa-laravel fa-2x pr-4 border-r-4 border-red-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa-brands fa-laravel text-3xl text-red-500"></i>
             <h4 class="font-sans font-bold">Laravel</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-cyan-700 text-4xl flex justify-between">
-            <i class="fa-brands fa-css3 fa-2x pr-4 border-r-4 border-cyan-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa-brands fa-css3 text-3xl text-cyan-400"></i>
             <h4 class="font-sans font-bold">CSS 3</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-purple-700 text-4xl flex justify-between">
-            <i class="fa-brands fa-bootstrap fa-2x pr-4 border-r-4 border-purple-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa-brands fa-bootstrap text-3xl text-purple-400"></i>
             <h4 class="font-sans font-bold">Bootstrap</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-cyan-700 text-7xl flex justify-between">
-            <i class="devicon-tailwindcss-original pr-4 border-r-4 border-cyan-600 rounded-r-lg inline-block"></i>
-            <h4 class="font-sans font-bold text-3xl">Tailwind CSS</h4>
+          <div class="skill-item"><i class="devicon-tailwindcss-original text-4xl text-cyan-400"></i>
+            <h4 class="font-sans font-bold">Tailwind CSS</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-yellow-400 text-4xl flex justify-between">
-            <i class="fa-brands fa-js fa-2x pr-4 border-r-4 border-yellow-300 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa-brands fa-js text-3xl text-yellow-400"></i>
             <h4 class="font-sans font-bold">Javascript</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-cyan-700 text-7xl flex justify-between">
-            <i class="devicon-jquery-plain pr-4 border-r-4 border-cyan-600 rounded-r-lg inline-block"></i>
-            <h4 class="font-sans font-bold text-4xl">JQuery</h4>
+          <div class="skill-item"><i class="devicon-jquery-plain text-4xl text-cyan-400"></i>
+            <h4 class="font-sans font-bold">JQuery</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-green-700 text-4xl flex justify-between">
-            <i class="fa-brands fa-node-js fa-2x pr-4 border-r-4 border-green-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa-brands fa-node-js text-3xl text-green-400"></i>
             <h4 class="font-sans font-bold">Node JS</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-blue-700 text-4xl flex justify-between">
-            <i class="fa-brands fa-react fa-2x pr-4 border-r-4 border-blue-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa-brands fa-react text-3xl text-blue-400"></i>
             <h4 class="font-sans font-bold">React</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-cyan-700 text-4xl flex justify-between">
-            <i class="fa-brands fa-react fa-2x pr-4 border-r-4 border-cyan-600 rounded-r-lg"></i>
-            <h4 class="font-sans font-bold text-3xl">React Native</h4>
+          <div class="skill-item"><i class="fa-brands fa-react text-3xl text-cyan-400"></i>
+            <h4 class="font-sans font-bold">React Native</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-sky-700 text-4xl flex justify-between">
-            <i class="devicon-electron-original fa-2x pr-4 border-r-4 border-sky-600 rounded-r-lg"></i>
-            <h4 class="font-sans font-bold text-3xl">Electron</h4>
+          <div class="skill-item"><i class="devicon-electron-original text-3xl text-sky-400"></i>
+            <h4 class="font-sans font-bold">Electron</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-orange-700 text-4xl flex justify-between">
-            <i class="devicon-mysql-plain-wordmark fa-2x pr-4 border-r-4 border-orange-600 rounded-r-lg"></i>
-            <h4 class="font-sans font-bold text-3xl">MySQL</h4>
+          <div class="skill-item"><i class="devicon-mysql-plain-wordmark text-4xl text-orange-400"></i>
+            <h4 class="font-sans font-bold">MySQL</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-emerald-700 text-4xl flex justify-between">
-            <i class="devicon-mongodb-plain fa-2x pr-4 border-r-4 border-emerald-600 rounded-r-lg"></i>
-            <h4 class="font-sans font-bold text-3xl">MongoDB</h4>
+          <div class="skill-item"><i class="devicon-mongodb-plain text-4xl text-emerald-400"></i>
+            <h4 class="font-sans font-bold">MongoDB</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-emerald-700 text-4xl flex justify-between">
-            <i class="devicon-mongoose-original fa-2x pr-4 border-r-4 border-emerald-600 rounded-r-lg"></i>
-            <h4 class="font-sans font-bold text-3xl">Mongoose</h4>
+          <div class="skill-item"><i class="devicon-mongoose-original text-4xl text-emerald-400"></i>
+            <h4 class="font-sans font-bold">Mongoose</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-blue-700 text-4xl flex justify-between">
-            <i class="devicon-sqlite-plain fa-2x pr-4 border-r-4 border-blue-600 rounded-r-lg"></i>
-            <h4 class="font-sans font-bold text-3xl">SQLite</h4>
+          <div class="skill-item"><i class="devicon-sqlite-plain text-4xl text-blue-400"></i>
+            <h4 class="font-sans font-bold">SQLite</h4>
           </div>
         </div>
       </div>
-      <!-- If we need pagination -->
       <div class="swiper-pagination"></div>
-
     </div>
   </section>
-  <section class="px-2 sm:px-6 md:px-20 lg:px-36 pt-10 mb-28">
-    <h4 class="text-4xl text-center font-bold font-mono tracking-widest m-auto" data-aos="fade-down"
-      data-aos-easing="ease-in-sine">Keahlian (application)</h4>
+
+  <!-- KEAHLIAN APPLICATION -->
+  <section class="px-4 sm:px-8 md:px-20 lg:px-36 py-16 bg-theme-primary bg-pattern">
+    <h4 class="text-4xl text-center font-bold font-mono tracking-widest m-auto text-red-600 text-red-glow"
+      data-aos="fade-down" data-aos-easing="ease-in-sine">
+      Keahlian (Application)
+    </h4>
 
     <div class="swiper mt-10" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-out">
-      <!-- Additional required wrapper -->
       <div class="swiper-wrapper mb-10">
-        <!-- Slides -->
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-blue-700 text-4xl flex justify-between">
-            <i class="fa fa-file-word fa-2x pr-4 border-r-4 border-blue-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa fa-file-word text-3xl text-blue-400"></i>
             <h4 class="font-sans font-bold">Ms. Office Word</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-green-700 text-4xl flex justify-between">
-            <i class="fa fa-file-excel fa-2x pr-4 border-r-4 border-green-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa fa-file-excel text-3xl text-green-400"></i>
             <h4 class="font-sans font-bold">Ms. Office Excel</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-red-700 text-4xl flex justify-between">
-            <i class="fa fa-file-powerpoint fa-2x pr-4 border-r-4 border-red-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="fa fa-file-powerpoint text-3xl text-red-400"></i>
             <h4 class="font-sans font-bold">Ms. Office Power Point</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-cyan-700 text-4xl flex justify-between">
-            <i class="devicon-photoshop-plain fa-2x pr-4 border-r-4 border-cyan-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="devicon-photoshop-plain text-4xl text-cyan-400"></i>
             <h4 class="font-sans font-bold">Adobe Photoshop</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-fuchsia-700 text-4xl flex justify-between">
-            <i class="devicon-premierepro-plain fa-2x pr-4 border-r-4 border-fuchsia-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="devicon-premierepro-plain text-4xl text-fuchsia-400"></i>
             <h4 class="font-sans font-bold">Adobe Premiere Pro</h4>
           </div>
         </div>
         <div class="swiper-slide">
-          <div
-            class="rounded-lg border-2 drop-shadow-xl bg-slate-100 px-4 py-2 hover:text-purple-700 text-4xl flex justify-between">
-            <i class="devicon-aftereffects-plain fa-2x pr-4 border-r-4 border-purple-600 rounded-r-lg"></i>
+          <div class="skill-item"><i class="devicon-aftereffects-plain text-4xl text-purple-400"></i>
             <h4 class="font-sans font-bold">Adobe After Effect</h4>
           </div>
         </div>
       </div>
-      <!-- If we need pagination -->
       <div class="swiper-pagination"></div>
-
     </div>
   </section>
 
-  <section class="px-2 sm:px-6 md:px-20 lg:px-36 pt-10 mb-28">
-    <div
-      class="w-full bg-cover bg-center h-40 bg-fixed bg-[url('../img/BG2.jpg')] bg-slate-900 bg-blend-multiply rounded-lg flex mb-4">
+  <!-- PROYEK -->
+  <section class="px-4 sm:px-8 md:px-20 lg:px-36 py-16 bg-theme-secondary bg-pattern" id="proyek">
+    <div class="w-full parallax-bg h-40 bg-theme-card bg-blend-multiply rounded-2xl flex mb-4 border-theme shadow-theme"
+      style="background-color: rgba(0,0,0,0.5);">
       <h4 class="text-4xl text-center font-bold font-mono tracking-widest text-white m-auto"><span id="typed"></span>
       </h4>
     </div>
 
-    <div class="grid md:grid-cols-2 sm:grid-cols-1 gap-4 mt-14">
-
-      <div class="bg-cover bg-[url('../img/dkghaziberkah.jpg')] w-full h-64 rounded-xl p-5 group drop-shadow-xl"
-        data-aos="fade-up" data-aos-delay="200" data-aos-easing="ease-in-sine">
-        <a href="https://dkghaziberkah.com/" target="_blank"
-          class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">DK Ghazi Berkah</a>
-
-        <small
-          class="hidden group-hover:block bg-slate-400 px-2 py-5 mt-5 bg-gradient-to-r from-green-700 to-yellow-500 rounded-md text-slate-100 italic">Website
-          DK products.</small>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+      <div class="project-card group" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-image" style="background-image:url('src/img/dkghaziberkah.jpg')"></div>
+        <div class="p-5">
+          <a href="https://dkghaziberkah.com/" target="_blank" class="text-red-600 font-bold hover:underline">DK Ghazi
+            Berkah</a>
+          <p class="text-theme-secondary text-sm mt-1">Website DK products.</p>
+        </div>
       </div>
 
-      <div class="bg-cover bg-[url('../img/diskominfo.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
-        data-aos-delay="300" data-aos-easing="ease-in-sine">
-        <a href="https://diskominfo.bolmutkab.go.id/" target="_blank"
-          class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">Diskominfo
-          & Persandian Bolaang Mongondow Utara</a>
-
-        <small
-          class="hidden group-hover:block bg-slate-400 px-2 py-5 mt-5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-md text-slate-100 italic">Website
-          profil dinas Komunikasi Informasi dan Statistika di Bolaang Mongondow Utara.</small>
+      <div class="project-card group" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-image" style="background-image:url('src/img/diskominfo.jpg')"></div>
+        <div class="p-5">
+          <a href="https://diskominfo.bolmutkab.go.id/" target="_blank"
+            class="text-red-600 font-bold hover:underline">Diskominfo & Persandian Bolmut</a>
+          <p class="text-theme-secondary text-sm mt-1">Website profil dinas komunikasi.</p>
+        </div>
       </div>
 
-      <div class="bg-cover bg-[url('../img/perdaginkop.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
-        data-aos-delay="400" data-aos-easing="ease-in-sine">
-        <a href="https://sibakti.perdaginkop.bolmutkab.go.id/" target="_blank"
-          class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">Sibakti
-          Bolaang Mongondow Utara</a>
-
-        <small
-          class="hidden group-hover:block bg-slate-400 px-2 py-5 mt-5 bg-gradient-to-r from-yellow-500 to-blue-600 rounded-md text-slate-100 italic">Website
-          daftar harga bahan pokok dan bahan penting per hari di pasar - pasar Kecamatan - Kecamatan di Bolaang
-          Mongondow Utara.</small>
+      <div class="project-card group" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-image" style="background-image:url('src/img/perdaginkop.jpg')"></div>
+        <div class="p-5">
+          <a href="https://sibakti.perdaginkop.bolmutkab.go.id/" target="_blank"
+            class="text-red-600 font-bold hover:underline">Sibakti Bolmut</a>
+          <p class="text-theme-secondary text-sm mt-1">Website daftar harga bahan pokok.</p>
+        </div>
       </div>
 
-      <div class="bg-cover bg-[url('../img/ppid.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
-        data-aos-delay="200" data-aos-easing="ease-in-sine">
-        <a href="https://ppid.bolmutkab.go.id/" target="_blank"
-          class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">PPID
-          (Pejabat Pengelola Informasi dan Dokumentasi)</a>
-
-        <small
-          class="hidden group-hover:block bg-slate-400 px-2 py-5 mt-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-md text-slate-100 italic">Website
-          yang mengelola informasi pemerintah daerah khusunya di Bolaang Mongondow Utara.</small>
+      <div class="project-card group" data-aos="fade-up" data-aos-delay="250">
+        <div class="card-image" style="background-image:url('src/img/ppid.jpg')"></div>
+        <div class="p-5">
+          <a href="https://ppid.bolmutkab.go.id/" target="_blank" class="text-red-600 font-bold hover:underline">PPID
+            Bolmut</a>
+          <p class="text-theme-secondary text-sm mt-1">Website pengelola informasi pemerintah daerah.</p>
+        </div>
       </div>
 
-      <div class="bg-cover bg-[url('../img/kecmatan.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
-        data-aos-delay="300" data-aos-easing="ease-in-sine">
-        <a href="http://kaidipang.bolmutkab.go.id/" target="_blank"
-          class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">Kecamatan
-          Kaidipang KAB. Bolmut</a>
-
-        <small
-          class="hidden group-hover:block bg-slate-400 px-2 py-5 mt-5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-md text-slate-100 italic">Website
-          profil kecamatan kaidipang di KAB. Bolmut.</small>
+      <div class="project-card group" data-aos="fade-up" data-aos-delay="350">
+        <div class="card-image" style="background-image:url('src/img/kecmatan.jpg')"></div>
+        <div class="p-5">
+          <a href="http://kaidipang.bolmutkab.go.id/" target="_blank"
+            class="text-red-600 font-bold hover:underline">Kecamatan Kaidipang</a>
+          <p class="text-theme-secondary text-sm mt-1">Website profil kecamatan.</p>
+        </div>
       </div>
 
-      <div class="bg-cover bg-[url('../img/simudah.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
-        data-aos-delay="400" data-aos-easing="ease-in-sine">
-        <a href="https://simudah.bolmutkab.go.id/" target="_blank"
-          class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">SIMUDAH
-          (Sistem Informasi Manajemen Surat Daerah)</a>
-
-        <small
-          class="hidden group-hover:block bg-slate-400 px-2 py-5 mt-5 bg-gradient-to-r from-purple-500 to-blue-700 rounded-md text-slate-100 italic">Website
-          Adminitrasi surat yang ada di Bolaang Mongondow Utara.</small>
+      <div class="project-card group" data-aos="fade-up" data-aos-delay="450">
+        <div class="card-image" style="background-image:url('src/img/simudah.jpg')"></div>
+        <div class="p-5">
+          <a href="https://simudah.bolmutkab.go.id/" target="_blank"
+            class="text-red-600 font-bold hover:underline">SIMUDAH</a>
+          <p class="text-theme-secondary text-sm mt-1">Website administrasi surat daerah.</p>
+        </div>
       </div>
 
-      <div class="bg-cover bg-[url('../img/bagahar.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
-        data-aos-delay="400" data-aos-easing="ease-in-sine">
-        <a href="javascript:void(0)"
-          class="bg-cyan-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">BAGAHAR (Balapor Gawat Darurat)</a>
-
-        <small
-          class="hidden group-hover:block bg-slate-400 px-2 py-5 mt-5 bg-gradient-to-r from-cyan-500 to-sky-700 rounded-md text-slate-100 italic">Aplikasi di peruntukan untuk masyarakat bolaang mongondow utara dan petugas. Digunakan untuk melaporkan kejadian-kejadian gawat darurat seperti contoh: pingsan, kecelakaan dan lain sebagainya...</small>
+      <div class="project-card group" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-image" style="background-image:url('src/img/bagahar.jpg')"></div>
+        <div class="p-5">
+          <span class="text-red-600 font-bold">BAGAHAR</span>
+          <p class="text-theme-secondary text-sm mt-1">Aplikasi laporan gawat darurat.</p>
+        </div>
       </div>
 
-      <div class="bg-cover bg-[url('../img/desa-app.jpg')] w-full h-64 rounded-xl p-5 group" data-aos="fade-up"
-        data-aos-delay="400" data-aos-easing="ease-in-sine">
-        <a href="javascript:void(0)"
-          class="bg-blue-700 shadow-2xl p-1 rounded-md text-slate-100 transition ease-in-out duration-100 hidden group-hover:inline-block">Desa Boroko</a>
-
-        <small
-          class="hidden group-hover:block bg-slate-400 px-2 py-5 mt-5 bg-gradient-to-r from-cyan-500 to-sky-700 rounded-md text-slate-100 italic">Aplikasi di peruntukan untuk aparatur desa khususnya di desa Boroko kec. Kaidipang kab. Bolaang mongondow Utara. Digunakan untuk paraf dan tanda tangan surat serta digunakan juuga untuk presensi kehadiran aparatur perangkat desa.</small>
+      <div class="project-card group" data-aos="fade-up" data-aos-delay="400">
+        <div class="card-image" style="background-image:url('src/img/desa-app.jpg')"></div>
+        <div class="p-5">
+          <span class="text-red-600 font-bold">Desa Boroko</span>
+          <p class="text-theme-secondary text-sm mt-1">Aplikasi aparatur desa.</p>
+        </div>
       </div>
-
     </div>
   </section>
 
-  <section class="px-2 sm:px-6 md:px-20 lg:px-36 pt-10 pb-52">
-    <h4 class="text-4xl text-center mb-20 font-bold font-mono tracking-widest" data-aos="fade-down-right"
-      data-aos-easing="ease-in-out">Pendidikan</h4>
+  <!-- PENDIDIKAN -->
+  <section class="px-4 sm:px-8 md:px-20 lg:px-36 py-16 bg-theme-primary bg-pattern">
+    <h4 class="text-4xl text-center mb-12 font-bold font-mono tracking-widest text-red-600 text-red-glow"
+      data-aos="fade-down-right" data-aos-easing="ease-in-out">
+      Pendidikan
+    </h4>
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-        <thead class="text-xs text-gray-300 uppercase bg-slate-600">
+    <div class="relative overflow-x-auto shadow-theme rounded-2xl border-theme max-w-4xl mx-auto" data-aos="fade-up">
+      <table class="w-full text-sm text-left rtl:text-right text-theme-primary dark-table">
+        <thead class="text-xs uppercase text-red-300">
           <tr>
-            <th scope="col" class="px-6 py-3">
-              Institusi
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Jurusan
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Alias
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Lulus
-            </th>
+            <th scope="col" class="px-6 py-4">Institusi</th>
+            <th scope="col" class="px-6 py-4">Jurusan</th>
+            <th scope="col" class="px-6 py-4">Alias</th>
+            <th scope="col" class="px-6 py-4">Lulus</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="bg-white border-b border-gray-300">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              STMIK Ichsan Gorontalo
+          <tr>
+            <th scope="row" class="px-6 py-4 font-medium text-theme-primary whitespace-nowrap">STMIK Ichsan Gorontalo
             </th>
-            <td class="px-6 py-4">
-              Sistem Informasi - S1
-            </td>
-            <td class="px-6 py-4">
-              (SI)
-            </td>
-            <td class="px-6 py-4">
-              Desember 2019
-            </td>
+            <td class="px-6 py-4">Sistem Informasi - S1</td>
+            <td class="px-6 py-4">(SI)</td>
+            <td class="px-6 py-4">Desember 2019</td>
           </tr>
-          <tr class="bg-white border-b border-gray-300">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              SMK N 1 Limboto
-            </th>
-            <td class="px-6 py-4">
-              Teknik Komputer Jaringan
-            </td>
-            <td class="px-6 py-4">
-              (TKJ)
-            </td>
-            <td class="px-6 py-4">
-              Mei 2015
-            </td>
+          <tr>
+            <th scope="row" class="px-6 py-4 font-medium text-theme-primary whitespace-nowrap">SMK N 1 Limboto</th>
+            <td class="px-6 py-4">Teknik Komputer Jaringan</td>
+            <td class="px-6 py-4">(TKJ)</td>
+            <td class="px-6 py-4">Mei 2015</td>
           </tr>
-          <tr class="bg-white">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              SMP N 2 Telaga
-            </th>
-            <td class="px-6 py-4">
-              Bangunan
-            </td>
-            <td class="px-6 py-4">
-              (BG)
-            </td>
-            <td class="px-6 py-4">
-              Juni 2012
-            </td>
+          <tr>
+            <th scope="row" class="px-6 py-4 font-medium text-theme-primary whitespace-nowrap">SMP N 2 Telaga</th>
+            <td class="px-6 py-4">Bangunan</td>
+            <td class="px-6 py-4">(BG)</td>
+            <td class="px-6 py-4">Juni 2012</td>
           </tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <section class="px-2 sm:px-6 md:px-20 lg:px-36 pt-10 pb-52">
-    <h4 class="text-4xl text-center mb-20 font-bold font-mono tracking-widest" data-aos="fade-down-left"
-      data-aos-easing="ease-in-out">Pengalaman Kerja</h4>
+  <!-- PENGALAMAN KERJA - DIPERBARUI DENGAN 2 ITEM BARU -->
+  <section class="px-4 sm:px-8 md:px-20 lg:px-36 py-16 bg-theme-secondary bg-pattern">
+    <h4 class="text-4xl text-center mb-12 font-bold font-mono tracking-widest text-red-600 text-red-glow"
+      data-aos="fade-down-left" data-aos-easing="ease-in-out">
+      Pengalaman Kerja
+    </h4>
 
-
-    <div class="w-full">
-
-      <!-- Vertical Timeline #2 -->
+    <div class="max-w-5xl mx-auto">
       <div
-        class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+        class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-red-600/40 before:to-transparent">
 
-        <!-- Item #1 -->
+        <!-- IT Programmer RSUD Aloei Saboe (2025 - Sekarang) -->
         <div
           class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-          <!-- Icon -->
           <div
-            class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
-              <path fill-rule="nonzero"
-                d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            class="flex items-center justify-center w-12 h-12 rounded-full timeline-dot shadow-[0_0_30px_rgba(220,38,38,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <svg class="fill-white w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
             </svg>
           </div>
-          <!-- Card -->
-          <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-            <div class="flex items-center justify-between space-x-2 mb-1">
-              <div class="font-bold text-slate-900">Programmer | IT Support</div>
-              <time class="font-caveat font-medium text-indigo-500 text-right">Maret 2022 - Desember 2024</time>
+          <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] timeline-item border-red-600/30">
+            <div class="flex flex-wrap items-center justify-between mb-2">
+              <div class="font-bold text-theme-primary text-lg">IT Programmer</div>
+              <time class="font-medium text-red-400 text-sm">Juni 2025 - Sekarang</time>
             </div>
-            <div class="text-slate-700">Diskominfo & Persandian Kab. Bolmut</div>
-
-            <ul class="space-y-4 text-left text-gray-500">
-              <li class="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg class="shrink-0 w-3.5 h-3.5 text-green-500 mt-2" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5.917 5.724 10.5 15 1.5" />
-                </svg>
-                <span>Membuat, mengembangkan dan pemeliharaan aplikasi yang berbasis website maupun android
-                  yang ada di daerah BOLMUT.</span>
-              </li>
-              <li class="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg class="shrink-0 w-3.5 h-3.5 text-green-500 mt-2" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5.917 5.724 10.5 15 1.5" />
-                </svg>
-                <span>Crimping Kable LAN.</span>
-              </li>
-              <li class="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg class="shrink-0 w-3.5 h-3.5 text-green-500 mt-2" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5.917 5.724 10.5 15 1.5" />
-                </svg>
-                <span>Instalasi software & hardware komputer.</span>
-              </li>
-              <li class="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg class="shrink-0 w-3.5 h-3.5 text-green-500 mt-2" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5.917 5.724 10.5 15 1.5" />
-                </svg>
-                <span>Deploy website yang telah dibuat kedalam server DISKOMINFO.</span>
-              </li>
-              <li class="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg class="shrink-0 w-3.5 h-3.5 text-green-500 mt-2" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5.917 5.724 10.5 15 1.5" />
-                </svg>
-                <span>Mengembangkan solusi perangkat lunak khusus untuk klien, disesuaikan dengan kebutuhan
-                  bisnis spesifik dan tantangan operasional mereka.</span>
-              </li>
-            </ul>
-
-          </div>
-        </div>
-
-        <!-- Item #2 -->
-        <div
-          class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-          <!-- Icon -->
-          <div
-            class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
-              <path fill-rule="nonzero"
-                d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
-            </svg>
-          </div>
-          <!-- Card -->
-          <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-            <div class="flex items-center justify-between space-x-2 mb-1">
-              <div class="font-bold text-slate-900">Administrator | IT Support</div>
-              <time class="font-caveat font-medium text-indigo-500">Oktober 2020 - Desember 2020</time>
-            </div>
-            <div class="text-slate-700">Disdukcapil</div>
-            <ul class="space-y-4 text-left text-gray-500">
-              <li class="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg class="shrink-0 w-3.5 h-3.5 text-green-500 mt-2" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5.917 5.724 10.5 15 1.5" />
-                </svg>
-                <span>Mengelola platform media sosial, memastikan tanggapan tepat waktu terhadap pertanyaan
-                  pengguna dan membina hubungan pelanggan yang positif.</span>
-              </li>
-              <li class="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg class="shrink-0 w-3.5 h-3.5 text-green-500 mt-2" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5.917 5.724 10.5 15 1.5" />
-                </svg>
-                <span>Mendokumentasikan kegiatan yang ada di DISDUKCAPIL.</span>
-              </li>
-              <li class="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg class="shrink-0 w-3.5 h-3.5 text-green-500 mt-2" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5.917 5.724 10.5 15 1.5" />
-                </svg>
-                <span>Installasi Komputer.</span>
-              </li>
+            <div class="text-theme-secondary text-sm mb-2">RSUD Aloei Saboe Kota Gorontalo</div>
+            <ul class="space-y-2 text-theme-secondary text-sm">
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Mengembangkan dan mengelola sistem informasi
+                rumah sakit untuk mendukung operasional dan layanan kesehatan.</li>
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Melakukan pemeliharaan dan optimasi database
+                serta aplikasi internal.</li>
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Berkolaborasi dengan tim medis untuk
+                mengidentifikasi dan menyelesaikan kebutuhan sistem.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Item #3 -->
+        <!-- Backend Programmer Entercode (2025) -->
         <div
           class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-          <!-- Icon -->
           <div
-            class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
-              <path fill-rule="nonzero"
-                d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            class="flex items-center justify-center w-12 h-12 rounded-full timeline-dot shadow-[0_0_30px_rgba(220,38,38,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <svg class="fill-white w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
             </svg>
           </div>
-          <!-- Card -->
-          <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow">
-            <div class="flex items-center justify-between space-x-2 mb-1">
-              <div class="font-bold text-slate-900">Programmer</div>
-              <time class="font-caveat font-medium text-indigo-500">September 2019 - November 2019</time>
+          <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] timeline-item">
+            <div class="flex flex-wrap items-center justify-between mb-2">
+              <div class="font-bold text-theme-primary text-lg">Backend Programmer</div>
+              <time class="font-medium text-red-400 text-sm">April - Mei 2025</time>
             </div>
-            <div class="text-slate-500">PT. Makna Karya Selaras</div>
-            <ul class="space-y-4 text-left text-gray-500">
-              <li class="flex items-start space-x-3 rtl:space-x-reverse">
-                <svg class="shrink-0 w-3.5 h-3.5 text-green-500 mt-2" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5.917 5.724 10.5 15 1.5" />
-                </svg>
-                <span>Mengurangi kesalahan sistem dan meningkatkan keandalan melalui proses debugging yang
-                  ketat. </span>
-              </li>
+            <div class="text-theme-secondary text-sm mb-2">Entercode</div>
+            <ul class="space-y-2 text-theme-secondary text-sm">
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Mengembangkan backend system dengan arsitektur
+                microservice menggunakan Laravel.</li>
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Merancang dan mengoptimalkan API untuk
+                mendukung aplikasi enterprise.</li>
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Melakukan integrasi sistem dengan database
+                MySQL dan MongoDB.</li>
             </ul>
           </div>
         </div>
+
+        <!-- Tenaga Ahli Programmer Diskominfo (2022-2024) -->
+        <div
+          class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div
+            class="flex items-center justify-center w-12 h-12 rounded-full timeline-dot shadow-[0_0_30px_rgba(220,38,38,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <svg class="fill-white w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+          </div>
+          <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] timeline-item">
+            <div class="flex flex-wrap items-center justify-between mb-2">
+              <div class="font-bold text-theme-primary text-lg">Tenaga Ahli Programmer</div>
+              <time class="font-medium text-red-400 text-sm">Maret 2022 - Desember 2024</time>
+            </div>
+            <div class="text-theme-secondary text-sm mb-2">Diskominfo & Persandian Kab. Bolmut</div>
+            <ul class="space-y-2 text-theme-secondary text-sm">
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Membangun dan memelihara aplikasi berbasis
+                website dan android untuk pemerintah daerah.</li>
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Melakukan deployment dan optimasi server
+                DISKOMINFO.</li>
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Mengembangkan solusi perangkat lunak sesuai
+                kebutuhan klien dan instansi.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Programmer STMIK (2019) -->
+        <div
+          class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+          <div
+            class="flex items-center justify-center w-12 h-12 rounded-full timeline-dot shadow-[0_0_30px_rgba(220,38,38,0.5)] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            <svg class="fill-white w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+          </div>
+          <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] timeline-item">
+            <div class="flex flex-wrap items-center justify-between mb-2">
+              <div class="font-bold text-theme-primary text-lg">Programmer</div>
+              <time class="font-medium text-red-400 text-sm">September - November 2019</time>
+            </div>
+            <div class="text-theme-secondary text-sm mb-2">STMIK ICHSAN Gorontalo</div>
+            <ul class="space-y-2 text-theme-secondary text-sm">
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Mengembangkan aplikasi internal kampus dengan
+                PHP dan Codeigniter.</li>
+              <li class="flex gap-2"><span class="text-red-500">▹</span> Melakukan debugging dan optimasi sistem untuk
+                meningkatkan performa.</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
-
-
   </section>
 
-  <footer class="bg-slate-950 py-5">
-    <h3 class="text-white text-center">&copy;
-      <script>document.write(new Date().getFullYear())</script> | <strong>Moh. Syahrur Mahani</strong>
+  <footer class="bg-theme-secondary py-5 border-t border-theme">
+    <h3 class="text-center text-theme-secondary text-sm">
+      &copy;
+      <script>document.write(new Date().getFullYear())</script> | <strong class="text-red-600">Moh. Syahrur
+        Mahani</strong>
     </h3>
   </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="if (AOS) {AOS.init();}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Typed
+      new Typed('#typed', {
+        strings: ['My Projects', 'Daftar Projek'],
+        typeSpeed: 100,
+        delaySpeed: 200,
+        loop: true
+      });
+
+      // Smooth scroll
+      document.querySelectorAll('.scroll-spy-link').forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const target = document.querySelector(link.hash);
+          if (target) target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // Swiper
+      new Swiper('.swiper', {
+        direction: 'horizontal',
+        loop: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        grabCursor: true,
+        breakpoints: {
+          425: { slidesPerView: 1, spaceBetween: 20 },
+          640: { slidesPerView: 2, spaceBetween: 10 },
+          768: { slidesPerView: 2, spaceBetween: 10 },
+          1024: { slidesPerView: 3, spaceBetween: 30 }
+        },
+      });
+
+      // Theme toggle
+      const toggle = document.getElementById('themeToggle');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        body.classList.add('dark');
+        body.classList.remove('light');
+        toggle.checked = true;
+      } else if (savedTheme === 'light') {
+        body.classList.remove('dark');
+        body.classList.add('light');
+        toggle.checked = false;
+      }
+
+      toggle.addEventListener('change', function () {
+        if (this.checked) {
+          body.classList.add('dark');
+          body.classList.remove('light');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          body.classList.remove('dark');
+          body.classList.add('light');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+  </script>
+
 </body>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="if (AOS) {AOS.init();}"></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script type="module">
-  new Typed('#typed', {
-    strings: ['My Projects', 'Daftar Projek'],
-    typeSpeed: 100,
-    delaySpeed: 200,
-    loop: true
-  })
-
-  const makeNavLinksSmooth = () => {
-    const navLinks = document.querySelectorAll('.scroll-spy-link')
-
-    for (let n in navLinks) {
-      if (navLinks.hasOwnProperty(n)) {
-        navLinks[n].addEventListener('click', e => {
-          e.preventDefault()
-          document.querySelector(navLinks[n].hash).scrollIntoView({ behavior: "smooth" })
-        })
-      }
-    }
-  }
-
-  makeNavLinksSmooth()
-  // spyScrolling()
-
-  new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-
-    grabCursor: true,
-    // slidesPerView: 3,
-    // spaceBetween: 30,
-
-    breakpoints: {
-      // ketika lebar layar <= 425px
-      425: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      // ketika lebar layar <= 640px
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-      // ketika lebar layar <= 768px
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-      // ketika lebar layar <= 1024px
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      }
-    },
-  })
-
-  new Swiper('.swiper-application', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-
-    grabCursor: true,
-    // slidesPerView: 3,
-    // spaceBetween: 30,
-
-    breakpoints: {
-      // ketika lebar layar <= 425px
-      425: {
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      // ketika lebar layar <= 640px
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-      // ketika lebar layar <= 768px
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-      // ketika lebar layar <= 1024px
-      1024: {
-        slidesPerView: 2,
-        spaceBetween: 30,
-      }
-    },
-  })
-
-</script>
 
 </html>
